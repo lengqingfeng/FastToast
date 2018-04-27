@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F79CDB5B8EB179540F381D2 /* libPods-FastToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C10FFFFDFBDACD546F417D1B /* libPods-FastToast.a */; };
 		48B26EBA20934D2A00F6CE34 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B26EB920934D2A00F6CE34 /* AppDelegate.m */; };
 		48B26EBD20934D2A00F6CE34 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B26EBC20934D2A00F6CE34 /* ViewController.m */; };
 		48B26EC020934D2A00F6CE34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B26EBE20934D2A00F6CE34 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 		48B26EC820934D2D00F6CE34 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B26EC720934D2D00F6CE34 /* main.m */; };
 		48B26ED220934D2D00F6CE34 /* FastToastTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B26ED120934D2D00F6CE34 /* FastToastTests.m */; };
 		48B26EDD20934D2D00F6CE34 /* FastToastUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B26EDC20934D2D00F6CE34 /* FastToastUITests.m */; };
+		48B26EED2093653700F6CE34 /* FastToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B26EEB2093653700F6CE34 /* FastToast.m */; };
+		48B26EEF2093653F00F6CE34 /* FastToast.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 48B26EEE2093653F00F6CE34 /* FastToast.bundle */; };
+		48B26EF2209365BF00F6CE34 /* FasetMaterialDesignSpinner.m in Sources */ = {isa = PBXBuildFile; fileRef = 48B26EF0209365BF00F6CE34 /* FasetMaterialDesignSpinner.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 		48B26ED820934D2D00F6CE34 /* FastToastUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastToastUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		48B26EDC20934D2D00F6CE34 /* FastToastUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FastToastUITests.m; sourceTree = "<group>"; };
 		48B26EDE20934D2D00F6CE34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		48B26EEB2093653700F6CE34 /* FastToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastToast.m; sourceTree = "<group>"; };
+		48B26EEC2093653700F6CE34 /* FastToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastToast.h; sourceTree = "<group>"; };
+		48B26EEE2093653F00F6CE34 /* FastToast.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FastToast.bundle; sourceTree = "<group>"; };
+		48B26EF0209365BF00F6CE34 /* FasetMaterialDesignSpinner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FasetMaterialDesignSpinner.m; sourceTree = "<group>"; };
+		48B26EF1209365BF00F6CE34 /* FasetMaterialDesignSpinner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FasetMaterialDesignSpinner.h; sourceTree = "<group>"; };
+		8EB5EB8BFB618C75806DEDCC /* Pods-FastToast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastToast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FastToast/Pods-FastToast.debug.xcconfig"; sourceTree = "<group>"; };
+		C10FFFFDFBDACD546F417D1B /* libPods-FastToast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FastToast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD7C039E779E936B8EA7D078 /* Pods-FastToast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FastToast.release.xcconfig"; path = "Pods/Target Support Files/Pods-FastToast/Pods-FastToast.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F79CDB5B8EB179540F381D2 /* libPods-FastToast.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +98,8 @@
 				48B26ED020934D2D00F6CE34 /* FastToastTests */,
 				48B26EDB20934D2D00F6CE34 /* FastToastUITests */,
 				48B26EB620934D2A00F6CE34 /* Products */,
+				82DC7C57198A3249D65B2098 /* Pods */,
+				B4EC5B3229D0041818B8B4DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +116,7 @@
 		48B26EB720934D2A00F6CE34 /* FastToast */ = {
 			isa = PBXGroup;
 			children = (
+				48B26EEA2093652300F6CE34 /* FastToastClass */,
 				48B26EB820934D2A00F6CE34 /* AppDelegate.h */,
 				48B26EB920934D2A00F6CE34 /* AppDelegate.m */,
 				48B26EBB20934D2A00F6CE34 /* ViewController.h */,
@@ -132,6 +148,35 @@
 			path = FastToastUITests;
 			sourceTree = "<group>";
 		};
+		48B26EEA2093652300F6CE34 /* FastToastClass */ = {
+			isa = PBXGroup;
+			children = (
+				48B26EEE2093653F00F6CE34 /* FastToast.bundle */,
+				48B26EEC2093653700F6CE34 /* FastToast.h */,
+				48B26EEB2093653700F6CE34 /* FastToast.m */,
+				48B26EF1209365BF00F6CE34 /* FasetMaterialDesignSpinner.h */,
+				48B26EF0209365BF00F6CE34 /* FasetMaterialDesignSpinner.m */,
+			);
+			path = FastToastClass;
+			sourceTree = "<group>";
+		};
+		82DC7C57198A3249D65B2098 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EB5EB8BFB618C75806DEDCC /* Pods-FastToast.debug.xcconfig */,
+				FD7C039E779E936B8EA7D078 /* Pods-FastToast.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B4EC5B3229D0041818B8B4DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C10FFFFDFBDACD546F417D1B /* libPods-FastToast.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +184,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48B26EE120934D2D00F6CE34 /* Build configuration list for PBXNativeTarget "FastToast" */;
 			buildPhases = (
+				74452CB60BE80A3A7112092F /* [CP] Check Pods Manifest.lock */,
 				48B26EB120934D2A00F6CE34 /* Sources */,
 				48B26EB220934D2A00F6CE34 /* Frameworks */,
 				48B26EB320934D2A00F6CE34 /* Resources */,
@@ -236,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48B26EC520934D2D00F6CE34 /* LaunchScreen.storyboard in Resources */,
+				48B26EEF2093653F00F6CE34 /* FastToast.bundle in Resources */,
 				48B26EC220934D2D00F6CE34 /* Assets.xcassets in Resources */,
 				48B26EC020934D2A00F6CE34 /* Main.storyboard in Resources */,
 			);
@@ -257,14 +304,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		74452CB60BE80A3A7112092F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FastToast-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		48B26EB120934D2A00F6CE34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B26EF2209365BF00F6CE34 /* FasetMaterialDesignSpinner.m in Sources */,
 				48B26EBD20934D2A00F6CE34 /* ViewController.m in Sources */,
 				48B26EC820934D2D00F6CE34 /* main.m in Sources */,
 				48B26EBA20934D2A00F6CE34 /* AppDelegate.m in Sources */,
+				48B26EED2093653700F6CE34 /* FastToast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,14 +501,13 @@
 		};
 		48B26EE220934D2D00F6CE34 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EB5EB8BFB618C75806DEDCC /* Pods-FastToast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FastToast/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lengshengren.FastToast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -447,14 +516,13 @@
 		};
 		48B26EE320934D2D00F6CE34 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD7C039E779E936B8EA7D078 /* Pods-FastToast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FastToast/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lengshengren.FastToast;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,11 +535,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FastToastTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lengshengren.FastToastTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -485,11 +549,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FastToastTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lengshengren.FastToastTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -502,11 +562,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FastToastUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lengshengren.FastToastUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -519,11 +575,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FastToastUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Lengshengren.FastToastUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

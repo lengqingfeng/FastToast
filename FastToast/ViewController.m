@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "FastToast.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [FastToast shareinstance].circleColor = [UIColor redColor];
     // Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)loading:(id)sender {
+    [FastToast showToastLoadingWithView:self.view];
+    //[FastToast showToastLoadingMsg:@"请稍等..."];
+}
+- (IBAction)toastMsg:(id)sender {
+    [FastToast hideToast];
+    // [FastToast showToastMsg:@"hello world"];
 }
 
 
