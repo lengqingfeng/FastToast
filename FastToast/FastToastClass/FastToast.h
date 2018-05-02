@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+
 @interface FastToast : NSObject
 
-+(instancetype)shareinstance;
++ (instancetype)shareinstance;
 
 /**
  圈圈颜色 showToastLoadingWithView
@@ -90,7 +92,6 @@
  */
 + (void)showToastLoadingMsg:(NSString *)msg graceTime:(float)graceTime;
 
-
 /**
    长时间等待菊花 是否开启蒙层
 
@@ -102,14 +103,13 @@
                   graceTime:(float)graceTime
               dimBackground:(BOOL)dimBackground;
 
-
-
 /**
  类似谷歌菊花圈圈
 
  @param view 显示视图
  */
 + (void)showToastLoadingWithView:(UIView *)view;
+
 /**
  隐藏toast
  */

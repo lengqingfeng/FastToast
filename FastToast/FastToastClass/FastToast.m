@@ -9,14 +9,17 @@
 #import "FastToast.h"
 #import "MBProgressHUD.h"
 #import "FasetMaterialDesignSpinner.h"
-static NSInteger const hudFontSize = 14;
+static NSInteger const kHudFontSize = 14;
+
+
 @interface FastToast ()
-@property (nonatomic, strong) MBProgressHUD  *hudView;
+@property (nonatomic, strong) MBProgressHUD *hudView;
 @property (nonatomic, strong) FasetMaterialDesignSpinner *spinnerView;
 @end
 
+
 @implementation FastToast
-+(instancetype)shareinstance {
++ (instancetype)shareinstance {
     static FastToast *toast = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -46,7 +49,7 @@ static NSInteger const hudFontSize = 14;
 }
 
 + (void)showToastSuccessMsg:(NSString *)successMsg {
-      UIImage *image = [UIImage imageNamed:[@"FastToast.bundle" stringByAppendingPathComponent:@"hudSuccess"]];
+    UIImage *image = [UIImage imageNamed:[@"FastToast.bundle" stringByAppendingPathComponent:@"hudSuccess"]];
     [self showToastMsg:successMsg delay:1.8 yOffset:0 hudImage:image];
 }
 
@@ -62,8 +65,7 @@ static NSInteger const hudFontSize = 14;
 
 + (void)showToastMsg:(NSString *)msg
                delay:(NSTimeInterval)delay
-             yOffset:(float)yOffset  {
-    
+             yOffset:(float)yOffset {
     [self showToastMsg:msg delay:delay
                yOffset:yOffset
               hudImage:nil];
@@ -78,7 +80,7 @@ static NSInteger const hudFontSize = 14;
         UIWindow *view = [[UIApplication sharedApplication].windows lastObject];
         [FastToast shareinstance].hudView = [MBProgressHUD showHUDAddedTo:view animated:YES];
         [FastToast shareinstance].hudView.mode = MBProgressHUDModeCustomView;
-        [FastToast shareinstance].hudView.labelFont = [UIFont systemFontOfSize:hudFontSize];
+        [FastToast shareinstance].hudView.labelFont = [UIFont systemFontOfSize:kHudFontSize];
         if (image) {
             [FastToast shareinstance].hudView.customView = [[UIImageView alloc] initWithImage:image];
         }
@@ -88,7 +90,6 @@ static NSInteger const hudFontSize = 14;
         [FastToast shareinstance].hudView.dimBackground = NO;
         [[FastToast shareinstance].hudView hide:YES afterDelay:delay];
     });
-
 }
 
 + (void)showToastLoadingMsg:(NSString *)msg {
@@ -111,17 +112,17 @@ static NSInteger const hudFontSize = 14;
                       delay:(NSTimeInterval)delay
                   graceTime:(float)graceTime
               dimBackground:(BOOL)dimBackground
-                       mode:(MBProgressHUDMode)mode  {
+                       mode:(MBProgressHUDMode)mode {
     [self hideToast];
     dispatch_async(dispatch_get_main_queue(), ^{
         UIWindow *view = [[UIApplication sharedApplication].windows lastObject];
         [FastToast shareinstance].hudView = [MBProgressHUD showHUDAddedTo:view animated:YES];
-        [FastToast shareinstance].hudView.labelFont = [UIFont systemFontOfSize:hudFontSize];
+        [FastToast shareinstance].hudView.labelFont = [UIFont systemFontOfSize:kHudFontSize];
         [FastToast shareinstance].hudView.removeFromSuperViewOnHide = YES;
         [FastToast shareinstance].hudView.labelText = msg;
         [FastToast shareinstance].hudView.mode = mode;
         [FastToast shareinstance].hudView.dimBackground = dimBackground;
-        [FastToast shareinstance].hudView.minShowTime = 0.3; //最少执行0.3 秒
+        [FastToast shareinstance].hudView.minShowTime = 0.3;     //最少执行0.3 秒
         [FastToast shareinstance].hudView.graceTime = graceTime; //设置几秒后开始显示，用户体验更好;
         [[FastToast shareinstance].hudView hide:YES afterDelay:delay];
     });
@@ -134,14 +135,14 @@ static NSInteger const hudFontSize = 14;
     FasetMaterialDesignSpinner *spinnerView = [[FasetMaterialDesignSpinner alloc] initWithFrame:CGRectZero];
     [FastToast shareinstance].spinnerView = spinnerView;
     if ([FastToast shareinstance].circleWidth) {
-          [FastToast shareinstance].spinnerView.lineWidth = [FastToast shareinstance].circleWidth;
+        [FastToast shareinstance].spinnerView.lineWidth = [FastToast shareinstance].circleWidth;
     } else {
         [FastToast shareinstance].spinnerView.lineWidth = 2.0f;
     }
-  
+
     [FastToast shareinstance].spinnerView.bounds = CGRectMake(0, 0, 40, 40);
     if ([FastToast shareinstance].circleColor) {
-         [FastToast shareinstance].spinnerView.tintColor = [FastToast shareinstance].circleColor;
+        [FastToast shareinstance].spinnerView.tintColor = [FastToast shareinstance].circleColor;
     } else {
         [FastToast shareinstance].spinnerView.tintColor = [UIColor blueColor];
     }
@@ -151,7 +152,7 @@ static NSInteger const hudFontSize = 14;
 
     [FastToast shareinstance].hudView = [MBProgressHUD showHUDAddedTo:view animated:YES];
     [FastToast shareinstance].hudView.mode = MBProgressHUDModeCustomView;
-    [FastToast shareinstance].hudView.customView  = [FastToast shareinstance].spinnerView;
+    [FastToast shareinstance].hudView.customView = [FastToast shareinstance].spinnerView;
     [FastToast shareinstance].hudView.color = [UIColor clearColor];
     [FastToast shareinstance].hudView.dimBackground = NO;
     [FastToast shareinstance].hudView.removeFromSuperViewOnHide = YES;
@@ -166,7 +167,6 @@ static NSInteger const hudFontSize = 14;
                 [[FastToast shareinstance].spinnerView stopAnimating];
             }
         });
-
     }
 }
 
