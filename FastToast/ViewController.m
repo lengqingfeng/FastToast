@@ -8,9 +8,12 @@
 
 #import "ViewController.h"
 #import "FastToast.h"
+
+
 @interface ViewController ()
 
 @end
+
 
 @implementation ViewController
 
@@ -20,8 +23,10 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)loading:(id)sender {
-    [FastToast showToastLoadingWithView:self.view];
+    //  [FastToast showToastLoadingWithView:self.view graceTime:3];
+    //[FastToast showToastLoadingMsg:@"请稍等.."];
     //[FastToast showToastLoadingMsg:@"请稍等..."];
+    [FastToast showToastMsg:@"hello world"];
 }
 - (IBAction)toastMsg:(id)sender {
     [FastToast hideToast];

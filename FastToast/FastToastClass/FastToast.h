@@ -67,7 +67,7 @@
  @param delay 延迟时间
  @param yOffset 偏移量
  */
-+ (void)showToastMsg:(NSString *)msg delay:(NSTimeInterval)delay yOffset:(float)yOffset;
++ (void)showToastMsg:(NSString *)msg delay:(NSTimeInterval)delay yOffset:(CGFloat)yOffset;
 
 /**
  长时间等待菊花
@@ -90,7 +90,7 @@
  @param msg 提示信息字符串
  @param graceTime 延时显示时间
  */
-+ (void)showToastLoadingMsg:(NSString *)msg graceTime:(float)graceTime;
++ (void)showToastLoadingMsg:(NSString *)msg graceTime:(CGFloat)graceTime;
 
 /**
    长时间等待菊花 是否开启蒙层
@@ -100,7 +100,7 @@
  @param dimBackground YES 显示蒙城
  */
 + (void)showToastLoadingMsg:(NSString *)msg
-                  graceTime:(float)graceTime
+                  graceTime:(CGFloat)graceTime
               dimBackground:(BOOL)dimBackground;
 
 /**
@@ -109,6 +109,8 @@
  @param view 显示视图
  */
 + (void)showToastLoadingWithView:(UIView *)view;
+
++ (void)showToastLoadingWithView:(UIView *)view graceTime:(CGFloat)graceTime;
 
 /**
  隐藏toast

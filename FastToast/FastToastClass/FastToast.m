@@ -58,14 +58,13 @@ static NSInteger const kHudFontSize = 14;
     [self showToastMsg:errorMsg delay:1.8 yOffset:0 hudImage:image];
 }
 
-
 + (void)showToastMsg:(NSString *)msg delay:(NSTimeInterval)delay {
     [self showToastMsg:msg delay:delay yOffset:0];
 }
 
 + (void)showToastMsg:(NSString *)msg
                delay:(NSTimeInterval)delay
-             yOffset:(float)yOffset {
+             yOffset:(CGFloat)yOffset {
     [self showToastMsg:msg delay:delay
                yOffset:yOffset
               hudImage:nil];
@@ -73,10 +72,10 @@ static NSInteger const kHudFontSize = 14;
 
 + (void)showToastMsg:(NSString *)msg
                delay:(NSTimeInterval)delay
-             yOffset:(float)yOffset
+             yOffset:(CGFloat)yOffset
             hudImage:(UIImage *)image {
-    [self hideToast];
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self hideToast];
         UIWindow *view = [[UIApplication sharedApplication].windows lastObject];
         [FastToast shareinstance].hudView = [MBProgressHUD showHUDAddedTo:view animated:YES];
         [FastToast shareinstance].hudView.mode = MBProgressHUDModeCustomView;
@@ -88,7 +87,7 @@ static NSInteger const kHudFontSize = 14;
         [FastToast shareinstance].hudView.yOffset = yOffset;
         [FastToast shareinstance].hudView.labelText = msg;
         [FastToast shareinstance].hudView.dimBackground = NO;
-        [[FastToast shareinstance].hudView hide:YES afterDelay:delay];
+        [self performSelector:@selector(hideToast) withObject:self afterDelay:delay];
     });
 }
 
@@ -100,11 +99,11 @@ static NSInteger const kHudFontSize = 14;
     [self showToastLoadingMsg:msg delay:delay graceTime:0 dimBackground:NO mode:MBProgressHUDModeIndeterminate];
 }
 
-+ (void)showToastLoadingMsg:(NSString *)msg graceTime:(float)graceTime {
++ (void)showToastLoadingMsg:(NSString *)msg graceTime:(CGFloat)graceTime {
     [self showToastLoadingMsg:msg delay:30 graceTime:graceTime dimBackground:NO mode:MBProgressHUDModeIndeterminate];
 }
 
-+ (void)showToastLoadingMsg:(NSString *)msg graceTime:(float)graceTime dimBackground:(BOOL)dimBackground {
++ (void)showToastLoadingMsg:(NSString *)msg graceTime:(CGFloat)graceTime dimBackground:(BOOL)dimBackground {
     [self showToastLoadingMsg:msg delay:30 graceTime:graceTime dimBackground:dimBackground mode:MBProgressHUDModeIndeterminate];
 }
 
@@ -113,10 +112,10 @@ static NSInteger const kHudFontSize = 14;
                   graceTime:(float)graceTime
               dimBackground:(BOOL)dimBackground
                        mode:(MBProgressHUDMode)mode {
-    [self hideToast];
     dispatch_async(dispatch_get_main_queue(), ^{
+        [self hideToast];
         UIWindow *view = [[UIApplication sharedApplication].windows lastObject];
-        [FastToast shareinstance].hudView = [MBProgressHUD showHUDAddedTo:view animated:YES];
+        [FastToast shareinstance].hudView = [[MBProgressHUD alloc] initWithView:view];
         [FastToast shareinstance].hudView.labelFont = [UIFont systemFontOfSize:kHudFontSize];
         [FastToast shareinstance].hudView.removeFromSuperViewOnHide = YES;
         [FastToast shareinstance].hudView.labelText = msg;
@@ -124,11 +123,15 @@ static NSInteger const kHudFontSize = 14;
         [FastToast shareinstance].hudView.dimBackground = dimBackground;
         [FastToast shareinstance].hudView.minShowTime = 0.3;     //最少执行0.3 秒
         [FastToast shareinstance].hudView.graceTime = graceTime; //设置几秒后开始显示，用户体验更好;
-        [[FastToast shareinstance].hudView hide:YES afterDelay:delay];
+        [self performSelector:@selector(hideToast) withObject:self afterDelay:delay];
+        [view addSubview:[FastToast shareinstance].hudView];
+        [[FastToast shareinstance].hudView show:YES];
+
     });
 }
 
-+ (void)showToastLoadingWithView:(UIView *)view {
++ (void)showToastLoadingWithView:(UIView *)view graceTime:(CGFloat)graceTime {
+    [self hideToast];
     if (view == nil) {
         view = [[UIApplication sharedApplication].windows lastObject];
     }
@@ -150,23 +153,30 @@ static NSInteger const kHudFontSize = 14;
     [FastToast shareinstance].spinnerView.translatesAutoresizingMaskIntoConstraints = NO;
     [[FastToast shareinstance].spinnerView startAnimating];
 
-    [FastToast shareinstance].hudView = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    [FastToast shareinstance].hudView = [[MBProgressHUD alloc] initWithView:view];
     [FastToast shareinstance].hudView.mode = MBProgressHUDModeCustomView;
     [FastToast shareinstance].hudView.customView = [FastToast shareinstance].spinnerView;
     [FastToast shareinstance].hudView.color = [UIColor clearColor];
     [FastToast shareinstance].hudView.dimBackground = NO;
     [FastToast shareinstance].hudView.removeFromSuperViewOnHide = YES;
-    [[FastToast shareinstance].hudView hide:YES afterDelay:30];
+    [FastToast shareinstance].hudView.graceTime = graceTime;
+    [FastToast shareinstance].hudView.taskInProgress = YES;
+    [self performSelector:@selector(hideToast) withObject:self afterDelay:30];
+    [view addSubview:[FastToast shareinstance].hudView];
+    [[FastToast shareinstance].hudView show:YES];
+}
+
+
++ (void)showToastLoadingWithView:(UIView *)view {
+    [self showToastLoadingWithView:view graceTime:0];
 }
 
 + (void)hideToast {
     if ([FastToast shareinstance].hudView != nil || ![FastToast shareinstance].hudView.isHidden) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [[FastToast shareinstance].hudView hide:YES];
-            if ([FastToast shareinstance].spinnerView) {
-                [[FastToast shareinstance].spinnerView stopAnimating];
-            }
-        });
+        [[FastToast shareinstance].hudView hide:YES];
+        if ([FastToast shareinstance].spinnerView) {
+            [[FastToast shareinstance].spinnerView stopAnimating];
+        }
     }
 }
 
