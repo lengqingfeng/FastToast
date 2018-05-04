@@ -1,1 +1,1 @@
-pod 'FastToast', '0.0.1'
+pod 'FastToast', '0.0.2'
