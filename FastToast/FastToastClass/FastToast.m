@@ -93,7 +93,7 @@ static NSInteger const kHudFontSize = 14;
 
 + (UIWindow *)getCurrentLastView {
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11) {
-        return [[UIApplication sharedApplication].windows firstObject];
+        return [UIApplication sharedApplication].keyWindow;
     } else {
         return [[UIApplication sharedApplication].windows lastObject];
     }
