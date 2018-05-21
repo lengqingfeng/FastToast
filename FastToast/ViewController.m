@@ -23,7 +23,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)loading:(id)sender {
-    //  [FastToast showToastLoadingWithView:self.view graceTime:3];
+    //[FastToast showToastLoadingWithView:self.view graceTime:3];
     //[FastToast showToastLoadingMsg:@"请稍等.."];
     //[FastToast showToastLoadingMsg:@"请稍等..."];
     [FastToast showToastMsg:@"hello world"];

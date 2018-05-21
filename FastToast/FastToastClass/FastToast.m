@@ -76,7 +76,7 @@ static NSInteger const kHudFontSize = 14;
             hudImage:(UIImage *)image {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hideToast];
-        UIWindow *view = [[UIApplication sharedApplication].windows lastObject];
+        UIWindow *view = [self getCurrentLastView];
         [FastToast shareinstance].hudView = [MBProgressHUD showHUDAddedTo:view animated:YES];
         [FastToast shareinstance].hudView.mode = MBProgressHUDModeCustomView;
         [FastToast shareinstance].hudView.labelFont = [UIFont systemFontOfSize:kHudFontSize];
@@ -91,6 +91,13 @@ static NSInteger const kHudFontSize = 14;
     });
 }
 
++ (UIWindow *)getCurrentLastView {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11) {
+        return [[UIApplication sharedApplication].windows firstObject];
+    } else {
+        return [[UIApplication sharedApplication].windows lastObject];
+    }
+}
 + (void)showToastLoadingMsg:(NSString *)msg {
     [self showToastLoadingMsg:msg graceTime:0];
 }
@@ -114,7 +121,7 @@ static NSInteger const kHudFontSize = 14;
                        mode:(MBProgressHUDMode)mode {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self hideToast];
-        UIWindow *view = [[UIApplication sharedApplication].windows lastObject];
+        UIWindow *view = [self getCurrentLastView];
         [FastToast shareinstance].hudView = [[MBProgressHUD alloc] initWithView:view];
         [FastToast shareinstance].hudView.labelFont = [UIFont systemFontOfSize:kHudFontSize];
         [FastToast shareinstance].hudView.removeFromSuperViewOnHide = YES;
@@ -133,7 +140,7 @@ static NSInteger const kHudFontSize = 14;
 + (void)showToastLoadingWithView:(UIView *)view graceTime:(CGFloat)graceTime {
     [self hideToast];
     if (view == nil) {
-        view = [[UIApplication sharedApplication].windows lastObject];
+        view = [self getCurrentLastView];
     }
     FasetMaterialDesignSpinner *spinnerView = [[FasetMaterialDesignSpinner alloc] initWithFrame:CGRectZero];
     [FastToast shareinstance].spinnerView = spinnerView;
